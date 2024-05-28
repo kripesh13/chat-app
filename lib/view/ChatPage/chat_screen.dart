@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:chat_app/constant/constant.dart';
 import 'package:chat_app/constant/k_text_form_field.dart';
 import 'package:chat_app/constant/ui_helpers.dart';
+import 'package:chat_app/view/services/Chat/image_services.dart';
 import 'package:chat_app/view/services/auth/auth.dart';
+import 'package:chat_app/widget/image_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../utils/custom_text_form_field.dart';
 import '../../widget/chat_bubble.dart';
@@ -11,6 +16,7 @@ import '../services/Chat/chat_services.dart';
 
 final TextEditingController messageController = TextEditingController();
 final ChatServices _chatServices = ChatServices();
+ImageServices _imageServices = ImageServices();
 
 class ChatScreen extends StatefulWidget {
   final String receiverEmail;
@@ -33,12 +39,16 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void sendMessages() async {
     if (messageController.text.isNotEmpty) {
-      await _chatServices.sendMessage(widget.receiverId, messageController.text);
-        messageController.clear();
+      await _chatServices.sendMessage(
+          widget.receiverId, messageController.text);
+      messageController.clear();
 
-    
       scrollDown();
     }
+  }
+
+  sendPhoto() async {
+    await _chatServices.sendPhoto(widget.receiverId);
   }
 
   @override
@@ -120,26 +130,41 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget _buildMessage(DocumentSnapshot doc, BuildContext context) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    bool isCurrentUser = data['senderId'] == _authServices.getCurrentUser()!.uid;
-    var alignment = isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
+    bool isCurrentUser =
+        data['senderId'] == _authServices.getCurrentUser()!.uid;
+    var alignment =
+        isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
     return Container(
       alignment: alignment,
-      padding: sPadding,
       child: Column(
         crossAxisAlignment:
             isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          ChatBubble(isCurrentUser: isCurrentUser, message: data['message'])
+          // Image.file(_imageServices.imageUrl as File),
+          ChatBubble(
+            isCurrentUser: isCurrentUser,
+            message: data['message'],
+          ),
+        _imageServices.pickedFile != null? Image.file(_imageServices.imageUrl as File): Container(),
+         ImageBubble(
+            isCurrentUser: isCurrentUser,
+            imageUrl: data['imageUrl'],
+          )
         ],
       ),
     );
   }
 
-  Widget _sendMessage(void Function() ?sendMessages) {
+  Widget _sendMessage(void Function()? sendMessages) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Row(
         children: [
+          IconButton(
+              onPressed: () {
+                sendPhoto();
+              },
+              icon: Icon(Icons.photo_camera)),
           Expanded(
             child: customTextField(
               focusNode: focusNode,
@@ -148,7 +173,8 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           Container(
-            decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
+            decoration:
+                BoxDecoration(color: Colors.green, shape: BoxShape.circle),
             margin: EdgeInsets.only(left: 25),
             child: IconButton(
               onPressed: sendMessages,

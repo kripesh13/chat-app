@@ -42,10 +42,19 @@ class LoginScreen extends StatelessWidget {
               hintText: 'password',
               controller: _passwordController,
             ),
-            kSizedBox(),
-            KButton(
-                child: Text("don't have a account",style: kkWhiteBoldTextStyle()),
-                onPressed: () {
+            LSizedBox(),
+            InkWell(
+                child: Container(
+                    width: 250,
+                    padding: kPadding(),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black),
+                    child: Center(
+                      child: Text("don't have a account",
+                          style: kkWhiteTextStyle()),
+                    )),
+                onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
                       return SignUpScreen();
@@ -53,10 +62,21 @@ class LoginScreen extends StatelessWidget {
                   ));
                 }),
             kSizedBox(),
-            KButton(
-                backgroundColor: Colors.black,
-                child: Text('login',style: kkWhiteBoldTextStyle(),),
-                onPressed: () {
+            InkWell(
+                child: Container(
+                  width: 250,
+                  padding: kPadding(),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black),
+                  child: Center(
+                    child: Text(
+                      'login',
+                      style: kkWhiteTextStyle(),
+                    ),
+                  ),
+                ),
+                onTap: () {
                   login();
                 })
           ],
