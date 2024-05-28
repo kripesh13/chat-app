@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "1091795673748",
+    "project_id": "instragram-api-5f2b7",
+    "storage_bucket": "instragram-api-5f2b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091795673748:android:ced8bcbe4103649b26ca81",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFu0oXzoFlZTwH9sII_osh6WAON5kAXs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091795673748:android:a97fb4d44b472b7126ca81",
+        "android_client_info": {
+          "package_name": "com.example.kera_wala_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFu0oXzoFlZTwH9sII_osh6WAON5kAXs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091795673748:android:d9e39f04a0f3d69826ca81",
+        "android_client_info": {
+          "package_name": "com.example.responsive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFu0oXzoFlZTwH9sII_osh6WAON5kAXs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091795673748:android:9261a1126371380c26ca81",
+        "android_client_info": {
+          "package_name": "com.kripesh.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFu0oXzoFlZTwH9sII_osh6WAON5kAXs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091795673748-kk84896fm1q1te8m1toipqif1471eld7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
